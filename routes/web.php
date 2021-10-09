@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\usercontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registration', [PagesController::class, 'registration']);
-Route::post('/register', [PagesController::class, 'register']);
+
+Route::get('/', [usercontroller::class, 'home'])->name('home');
+
+Route::get('/login', [usercontroller::class, 'loginPage'])->name('login');
+Route::post('/login', [usercontroller::class, 'loginSubmit'])->name('login');
+
+
+Route::get('/registration', [usercontroller::class, 'registrationPage'])->name('registration');
+Route::post('/registration', [usercontroller::class, 'registrationSubmit'])->name('registration');
+
+Route::get('/contact', [usercontroller::class, 'contactPage'])->name('contact');
+Route::post('/contact', [usercontroller::class, 'contactSubmit'])->name('contact');
